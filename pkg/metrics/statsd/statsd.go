@@ -127,6 +127,20 @@ func (s *statsd) write(m *metric) (err error) {
 		err = s.dial()
 		if err != nil {
 			if s.env.IsLocalDevelopmentMode() {
+				v := ""
+				if m.valueFloat != nil {
+					v = fmt.Sprintf("%f", *m.valueFloat)
+				} else {
+					v = fmt.Sprintf("%d", *m.valueGauge)
+				}
+
+				s.log.WithFields(logrus.Fields{
+					"metric":    m.metric,
+					"value":     v,
+					"Namespace": m.namespace,
+					"Account":   m.account,
+				}).Debug("Dropping metric (because local dev)")
+
 				err = nil
 			}
 			return
