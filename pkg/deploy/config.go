@@ -93,6 +93,7 @@ type Configuration struct {
 	RPVMSSCapacity                     *int          `json:"rpVmssCapacity,omitempty"`
 	SSHPublicKey                       *string       `json:"sshPublicKey,omitempty" value:"required"`
 	StorageAccountDomain               *string       `json:"storageAccountDomain,omitempty" value:"required"`
+	StorageSKU                         *string       `json:"storageSKU,omitempty"`
 	VMSize                             *string       `json:"vmSize,omitempty" value:"required"`
 	VMSSCleanupEnabled                 *bool         `json:"vmssCleanupEnabled,omitempty"`
 }

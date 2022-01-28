@@ -47,6 +47,7 @@ func (g *generator) gatewayTemplate() *arm.Template {
 		"rpResourceGroupName",
 		"rpServicePrincipalId",
 		"sshPublicKey",
+		"storageSKU",
 		"vmssCleanupEnabled",
 		"vmssName",
 	}

@@ -81,8 +81,10 @@ func (g *generator) storageAccount(name string, accountProperties *mgmtstorage.A
 			Name:     &name,
 			Type:     to.StringPtr("Microsoft.Storage/storageAccounts"),
 			Location: to.StringPtr("[resourceGroup().location]"),
+			Kind:     "StorageV2",
 			Sku: &mgmtstorage.Sku{
-				Name: "Standard_LRS",
+				// "sku": "[if(empty(parameters('storageAccountType')), json('null'), variables('storageAccountSkuObj'))]",
+				Name: "[if(empty(parameters('storageSKU')), json('null'),'Standard_LRS')]",
 			},
 			AccountProperties: accountProperties,
 		},

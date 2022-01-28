@@ -70,6 +70,7 @@ func (g *generator) rpTemplate() *arm.Template {
 			"rpVmssCapacity",
 			"sshPublicKey",
 			"storageAccountDomain",
+			"storageSKU",
 			"subscriptionResourceGroupName",
 			"vmSize",
 			"vmssCleanupEnabled",
@@ -160,6 +161,7 @@ func (g *generator) rpGlobalTemplate() *arm.Template {
 		"rpParentDomainName",
 		"rpServicePrincipalId",
 		"rpVersionStorageAccountName",
+		"storageSKU",
 	}
 
 	for _, param := range params {
